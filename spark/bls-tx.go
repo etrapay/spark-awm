@@ -2,7 +2,7 @@ package main
 
 import (
 	"github.com/consensys/gnark/frontend"
-	bls12 "github.com/yelhousni/ZKHackathon/spark/pairing_bls12381"
+	bls12 "github.com/etrapay/spark-awm/spark/pairing_bls12381"
 )
 
 type BLS_BLS12_TX struct {

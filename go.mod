@@ -1,4 +1,4 @@
-module github.com/yelhousni/ZKHackathon
+module github.com/etrapay/spark-awm
 
 go 1.20
 

@@ -8,7 +8,7 @@ import (
 	"github.com/consensys/gnark/frontend"
 	"github.com/consensys/gnark/std/math/bits"
 	"github.com/consensys/gnark/std/math/emulated"
-	"github.com/yelhousni/ZKHackathon/spark/sha256"
+	"github.com/etrapay/spark-awm/spark/sha256"
 )
 
 var (

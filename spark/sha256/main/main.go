@@ -10,7 +10,7 @@ import (
 	"runtime/debug"
 	"time"
 
-	cSha256 "github.com/yelhousni/ZKHackathon/spark/sha256"
+	cSha256 "github.com/etrapay/spark-awm/spark/sha256"
 
 	"github.com/consensys/gnark-crypto/ecc"
 	"github.com/consensys/gnark/backend/groth16"
