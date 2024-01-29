@@ -44,7 +44,6 @@ func (bls BLS_bls12) VerifyBLS_bls12_Tx(
 
 	h := bls.pr.HashToG2(msg)
 	bls.pr.PairingCheck([]*bls12.G1Affine{&G1neg, &apk}, []*bls12.G2Affine{&signature, h})
-
 }
 
 // Validator Rotation
@@ -69,5 +68,5 @@ func (bls BLS_bls12) Verify_bls12_Rotate(
 
 	newApk := bls.pr.AggregatePublicKeys_Rotate(newPublicKeys, bitlist)
 	apkToG2 := bls.pr.HashToG2(newApkCommitmentBytes)
-	bls.pr.PairingCheck([]*bls12.G1Affine{&G1neg, &newApk}, []*bls12.G2Affine{&signature, apkToG2 /*  newApkCommitment */})
+	bls.pr.PairingCheck([]*bls12.G1Affine{&G1neg, &newApk}, []*bls12.G2Affine{&signature, apkToG2})
 }
