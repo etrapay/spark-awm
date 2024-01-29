@@ -8,7 +8,7 @@ import (
 	"github.com/consensys/gnark/frontend"
 	"github.com/consensys/gnark/std/math/bits"
 	"github.com/consensys/gnark/std/math/emulated"
-	"github.com/yelhousni/ZKHackathon/spark/sha256"
+	"github.com/etrapay/spark-awm/spark/sha256"
 )
 
 var (
@@ -154,7 +154,16 @@ func GetRawLimbsBy8Uint64(api frontend.API, v [8]frontend.Variable) *emulated.El
 	if err != nil {
 		log.Fatal(err)
 	}
-	return f.ReduceWithoutConstantCheck(f.NewInternalElement(v[:], 1))
+
+	hintInputs := []frontend.Variable{
+		64,
+		len(v[:]),
+	}
+	hintInputs = append(hintInputs, v[:]...)
+	hintInputs = append(hintInputs, f.Modulus().Limbs...)
+	limbs, _ := api.NewHint(emulated.RemHint, int(len(f.Modulus().Limbs)), hintInputs...)
+
+	return f.NewElement(limbs)
 }
 
 func MapElementToCurve2(api frontend.API, e2 E2) (x, y *E2) {

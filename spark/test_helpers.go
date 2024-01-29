@@ -9,7 +9,7 @@ import (
 
 	bls12381 "github.com/consensys/gnark-crypto/ecc/bls12-381"
 	"github.com/consensys/gnark/frontend"
-	bls12 "github.com/yelhousni/ZKHackathon/spark/pairing_bls12381"
+	bls12 "github.com/etrapay/spark-awm/spark/pairing_bls12381"
 )
 
 func (bls BLS_bls12) AggregatePublicKeys(

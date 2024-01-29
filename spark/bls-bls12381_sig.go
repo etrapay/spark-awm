@@ -5,7 +5,7 @@ import (
 
 	bls12381 "github.com/consensys/gnark-crypto/ecc/bls12-381"
 	"github.com/consensys/gnark/frontend"
-	bls12 "github.com/yelhousni/ZKHackathon/spark/pairing_bls12381"
+	bls12 "github.com/etrapay/spark-awm/spark/pairing_bls12381"
 )
 
 const DOMAIN_SEPERATOR = "BLS_SIG_BLS12381G2_XMD:SHA-256_SSWU_RO_POP_"
