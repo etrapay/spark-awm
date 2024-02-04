@@ -827,7 +827,7 @@ func (pr Pairing) AggregatePublicKeys(
 		fullreslist[i+1] = *pr.AddG1Points(&fullreslist[i], &fullreslist[i+1])
 	}
 
-	for i := 0; i < 5; i++ {
+	for i := 0; i < 5; i++ { // todo 
 		if reslist[9].X.Limbs[i] == infinity.X.Limbs[i] && reslist[9].Y.Limbs[i] == infinity.Y.Limbs[i] {
 			pr.api.AssertIsEqual(0, 1)
 		}
