@@ -1,3 +1,7 @@
+/*
+This code is taken from Celer Network's Brevis project
+https://github.com/celer-network/brevis-circuits
+*/
 package pairing_bls12381
 
 import (

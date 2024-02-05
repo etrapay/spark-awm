@@ -1,3 +1,7 @@
+/*
+This package is taken from Youssef El Housni's ZKHackathon-zkCircuits repository
+https://github.com/yelhousni/ZKHackathon-zkCircuits
+*/
 package pairing_bls12381
 
 import (

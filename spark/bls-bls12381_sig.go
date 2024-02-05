@@ -34,7 +34,7 @@ func (bls BLS_bls12) VerifyBLS_bls12_Tx(
 	commitment, totalSignedWeight frontend.Variable,
 	msg [32]frontend.Variable,
 ) {
-	apk, _ := bls.AggregatePublicKeys(publicKeys, bitlist, weights, totalSignedWeight)
+	apk := bls.AggregatePublicKeys(publicKeys, bitlist, weights, totalSignedWeight)
 	apkCommitment := bls.ComputeAPKCommitment(publicKeys, weights)
 	bls.pr.CommitmentCheck(commitment, apkCommitment)
 
