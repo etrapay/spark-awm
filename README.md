@@ -1,4 +1,5 @@
-# Spark AWM
+![sparky](https://github.com/etrapay/spark-awm/assets/69128891/dd8cb6e3-e9f2-41c6-b193-652c349cd4d0)
+# Spark for AWM
 
 Spark is an extension to the Avalanche Warp Messaging (AWM) protocol, utilizing zero-knowledge proofs (zk-SNARKs) for more independent subnet communication. It aims to eliminate the need for an external ledger to collect validator public keys (P-chain), allowing subnet validators to verify cross-chain transactions with just SNARK proofs. Spark addresses the challenge of frequent and unpredictable validator set changes by enabling new validator sets to sign their own commitments, which relayers use to construct SNARK proofs for validator set rotations. This process ensures efficient and more izolated cross-chain communication within the Avalanche ecosystem. 
 
