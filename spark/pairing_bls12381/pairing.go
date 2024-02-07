@@ -799,18 +799,16 @@ func (pr Pairing) AggregatePublicKeys(
 	publicKeys [10]G1Affine,
 	bitlist, quorumW [10]frontend.Variable,
 	newTotalWeight frontend.Variable,
-) (G1Affine, G1Affine) {
+) G1Affine {
 	var infinity G1Affine
 	infinity.X = *pr.curveF.Zero()
 	infinity.Y = *pr.curveF.Zero()
 
-	fullreslist := make([]G1Affine, 10)
 	reslist := make([]G1Affine, 10)
 
 	threshold := frontend.Variable(0)
 
 	for i := 0; i < 10; i++ {
-		fullreslist[i] = publicKeys[i]
 
 		var sum G1Affine
 		sum.X = *pr.curveF.Select(bitlist[i], &publicKeys[i].X, &infinity.X)
@@ -824,21 +822,13 @@ func (pr Pairing) AggregatePublicKeys(
 
 	for i := 0; i < 9; i++ {
 		reslist[i+1] = *pr.AddG1Points(&reslist[i], &reslist[i+1])
-		fullreslist[i+1] = *pr.AddG1Points(&fullreslist[i], &fullreslist[i+1])
+
 	}
 
-	for i := 0; i < 5; i++ { // todo 
-		if reslist[9].X.Limbs[i] == infinity.X.Limbs[i] && reslist[9].Y.Limbs[i] == infinity.Y.Limbs[i] {
-			pr.api.AssertIsEqual(0, 1)
-		}
-		if fullreslist[9].X.Limbs[i] == infinity.X.Limbs[i] && fullreslist[9].Y.Limbs[i] == infinity.Y.Limbs[i] {
-			pr.api.AssertIsEqual(0, 1)
-		}
-	}
-
-	return reslist[9], fullreslist[9]
+	return reslist[9]
 }
 
+// duplicated todo merge
 func (pr Pairing) AggregatePublicKeys_Rotate(
 	publicKeys [10]G1Affine,
 	bitlist [10]frontend.Variable,
@@ -862,13 +852,6 @@ func (pr Pairing) AggregatePublicKeys_Rotate(
 		reslist[i+1] = *pr.AddG1Points(&reslist[i], &reslist[i+1])
 
 	}
-
-	for i := 0; i < 5; i++ {
-		if reslist[9].X.Limbs[i] == infinity.X.Limbs[i] && reslist[9].Y.Limbs[i] == infinity.Y.Limbs[i] {
-			pr.api.AssertIsEqual(0, 1)
-		}
-	}
-
 	return reslist[9]
 }
 

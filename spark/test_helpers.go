@@ -16,9 +16,9 @@ func (bls BLS_bls12) AggregatePublicKeys(
 	pubKeys [10]bls12.G1Affine,
 	BitList, QuorumWeights [10]frontend.Variable,
 	signedWeight frontend.Variable,
-) (bls12.G1Affine, bls12.G1Affine) {
-	res, fullres := bls.pr.AggregatePublicKeys(pubKeys, BitList, QuorumWeights, signedWeight)
-	return res, fullres
+) bls12.G1Affine {
+	res := bls.pr.AggregatePublicKeys(pubKeys, BitList, QuorumWeights, signedWeight)
+	return res
 }
 
 func (bls BLS_bls12) ComputeAPKCommitment(
