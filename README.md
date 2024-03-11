@@ -39,26 +39,21 @@ cd spark/ && go test
 
 ## Specifications
 
-All tests are done on AWS EC2 c6a.8xlarge (32vCPU 64GiB Ram) instance using gnark library with Groth16 over BN254 curve.
-Both circuits are tested for 10 validators.
+All tests are conducted on a Macbook Pro (M1 Pro CPU), using Gnark with Groth16 over BN254.
+Both circuits are designed for 10 validators, but this can be modified easily.
 
 - Number of constraints:
 
   -   Transaction circuit: 4887411
-  -   Rotate circuit: 5933281
-    
-- Generate witness:
-
-  -   Transaction circuit: -
-  -   Rotate circuit: 328.979µs
+  -   Rotate circuit: 5933281 
 
 - Generate Proof:
 
-  -   Transaction circuit: -
-  -   Rotate circuit: 118.88ms 
+  -   Transaction circuit: 23.66s (0.39m)
+  -   Rotate circuit: 28.72s (0.47s)
 
 
 - One-time Setup (pk,vk):
 
-  -   Transaction circuit: - 
-  -   Rotate circuit: 289.32s (4.82m)
+  -   Transaction circuit: 492.42s (8.21m)
+  -   Rotate circuit: 527.14s (8.78m)
